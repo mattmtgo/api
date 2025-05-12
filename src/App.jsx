@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect, useContext } from 'react'
 import './App.css'
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
@@ -9,11 +9,13 @@ import Pokemon from './Componentes/Pokemon'
 import Usuario from './Componentes/Usuario'
 import Menu from './Componentes/Menu'
 import Favoritos from './Componentes/Favoritos '
+import { AppProvider } from './Contexto/contexto';
 
 function App() {
 
 
   return (
+    <AppProvider>
     <Router>
       <Menu/>
       <Routes>
@@ -25,6 +27,7 @@ function App() {
         <Route path="/pokemon/:name" element={<Pokemon/>} />
       </Routes>
     </Router>
+    </AppProvider>
   )
 }
 
